@@ -11,7 +11,10 @@ router.post('/', function(req, res, next) {
   var startingWiki = true;
 
   function error400(response) {
-    response.status(400).send("400 Bad Request");
+    response.status(400).json({
+      'message': '400 Bad Request',
+      'params': req.body
+    });
   }
 
   var notValidParam = (!req.body.wikiUrl || typeof req.body.wikiUrl != "string");
@@ -23,7 +26,7 @@ router.post('/', function(req, res, next) {
     var regex = /((?:http|https):\/\/\D{2}.wikipedia.org)(\/wiki\/\S*)/
     var matches = regex.exec(url);
 
-    if(!matches.length) {
+    if(!matches || !matches.length) {
       error400(res);
     }
     else {
