@@ -1,6 +1,8 @@
 {
-  "name": "rc",
-  "version": "0.0.0",
+  "name": "wiki-philosophy-crawler",
+  "version"      : "0.0.1",
+  "description"  : "Wiki Philosophy Crawler",
+  "author": "pyodor",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -13,6 +15,8 @@
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
     "pug": "~2.0.0-beta6",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "request": "latest",
+    "cheerio": "latest"
   }
 }
