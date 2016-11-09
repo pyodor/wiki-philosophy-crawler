@@ -41,6 +41,7 @@ router.post('/', function(req, res, next) {
       function crawl(article) {
 
         function toJson() {
+          crawled = !crawled.length ? null : crawled;
           var json = {'startingWiki': url, 'wikisToPhilosophy': crawled};
           if(onLoop) {
             json["reachOnLoop"] = true;
