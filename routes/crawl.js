@@ -4,6 +4,14 @@ var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
 
+router.get('/', function(req, res, next) {
+  var endPoint = req.protocol + '://' + req.get('host') + req.originalUrl;
+  var param = "wikiUrl=https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy";
+  var prompt = 'Copy & paste below to your terminal'
+  var cmd = '<br><br><b style="font: 14px monospace;">curl --data "'+param+'" '+endPoint+'</b>';
+  res.send(prompt+cmd);
+});
+
 router.post('/', function(req, res, next) {
   var crawled = [];
   var baseUrl = '';
